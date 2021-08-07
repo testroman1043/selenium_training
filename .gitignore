@@ -1,6 +1,7 @@
 .gradle
-/build/
-
+build/
+.idea/workspace.xml
+.idea/misc.xml
 # Ignore Gradle GUI config
 gradle-app.setting
 
