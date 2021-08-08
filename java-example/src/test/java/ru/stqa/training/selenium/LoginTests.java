@@ -4,15 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+
 public class LoginTests {
     private WebDriver chromeDriver;
     private WebDriver firefoxDriver;
     private WebDriver safariDriver;
+    private WebDriver nightDriver;
 
 
 
@@ -21,9 +24,12 @@ public class LoginTests {
         chromeDriver = new ChromeDriver();
         firefoxDriver = new FirefoxDriver();
         safariDriver = new SafariDriver();
+        String binary = "/Applications/Firefox Nightly.app/Contents/MacOS/firefox-bin";
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setBinary(binary);
+        nightDriver = new FirefoxDriver(firefoxOptions);
     }
 
-//    @Test
     public void testLogin(WebDriver driver){
         driver.get("http://localhost/litecart/admin/");
         driver.findElement(By.name("username")).sendKeys("admin");
@@ -47,11 +53,17 @@ public class LoginTests {
         testLogin(safariDriver);
     }
 
+    @Test
+    public void testNight(){
+        testLogin(nightDriver);
+    }
+
 
     @AfterTest
     public void stop(){
         chromeDriver.quit();
         firefoxDriver.quit();
         safariDriver.quit();
+        nightDriver.quit();
     }
 }
