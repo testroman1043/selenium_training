@@ -65,5 +65,5 @@ public class LoginTests {
         firefoxDriver.quit();
         safariDriver.quit();
         nightDriver.quit();
-    }
+            }
 }
