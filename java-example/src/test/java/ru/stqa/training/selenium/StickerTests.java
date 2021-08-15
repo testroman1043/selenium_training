@@ -35,7 +35,7 @@ public class StickerTests {
         .findElements(By.xpath("//li[@class='product column shadow hover-light']"));
     for (WebElement item : items) {
       List<WebElement> itemStickers = item
-          .findElements(By.xpath(".//div[contains(@class,'sticker1')]"));
+          .findElements(By.xpath(".//div[contains(@class,'sticker')]"));
       Assert.assertEquals(itemStickers.size(), 1,
           "Неправильное количество стикеров у товара. " +
               item.findElement(By.xpath(".//a[@class='link']")).getAttribute("title"));
