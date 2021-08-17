@@ -32,7 +32,7 @@ public class StickerTests {
   public void testStickers() {
     driver.get("http://localhost/litecart/en/");
     List<WebElement> items = driver
-        .findElements(By.xpath("//li[@class='product column shadow hover-light']"));
+        .findElements(By.xpath("//li[contains(@class,'product')]"));
     for (WebElement item : items) {
       List<WebElement> itemStickers = item
           .findElements(By.xpath(".//div[contains(@class,'sticker')]"));
