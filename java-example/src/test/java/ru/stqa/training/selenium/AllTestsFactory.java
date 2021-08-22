@@ -10,9 +10,9 @@ public class AllTestsFactory {
   @Factory
   public Object[] itemTestsKit() {
     return new Object[]{
-//        new ItemTests(new FirefoxDriver()),
+        new ItemTests(new FirefoxDriver()),
         new ItemTests(new ChromeDriver()),
-//        new ItemTests(new SafariDriver()),
+        new ItemTests(new SafariDriver()),
     };
   }
 }
