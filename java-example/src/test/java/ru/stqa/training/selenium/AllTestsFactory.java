@@ -16,7 +16,7 @@ public class AllTestsFactory {
     };
   }
 
-  @Factory
+  //  @Factory
   public Object[] newUserTestsKit() {
     return new Object[]{
         new NewUserTests(new FirefoxDriver()),
@@ -24,8 +24,6 @@ public class AllTestsFactory {
         new NewUserTests(new SafariDriver()),
     };
   }
-
-
 }
 
 
