@@ -154,19 +154,25 @@ public class ItemTests {
     String itemCampaignPriceFontSize = firstItem
         .findElement(By.xpath(".//strong[@class='campaign-price']"))
         .getCssValue("font-size");
-    Assert.assertTrue(itemCampaignPriceFontSize.compareTo(itemRegularPriceFontSize) > 0,
-        "campaign price size is not bigger than regular " + itemCampaignPriceFontSize + " and "
+    float regularPrice = Float.parseFloat(itemRegularPriceFontSize.split("px")[0]);
+    float campaignPrice = Float.parseFloat(itemCampaignPriceFontSize.split("px")[0]);
+    Assert.assertTrue(campaignPrice > regularPrice,
+        "Main Page: campaign price size is not bigger than regular. Campaign is "
+            + itemCampaignPriceFontSize
+            + " and Regular is "
             + itemRegularPriceFontSize);
-
     firstItem.click();
     String itemPageCampaignPriceSize = driver
         .findElement(By.xpath("//strong[@class='campaign-price']"))
         .getCssValue("font-size");
     String itemPageRegularPriceSize = driver.findElement(By.xpath("//s[@class='regular-price']"))
         .getCssValue("font-size");
-    Assert.assertTrue(itemPageCampaignPriceSize.compareTo(itemPageRegularPriceSize) > 0,
-        "on item page campaign price size is not bigger than regular " + itemPageCampaignPriceSize
-            + " and " + itemPageRegularPriceSize);
+    float pagePriceRegular = Float.parseFloat(itemRegularPriceFontSize.split("px")[0]);
+    float pagePriceCampaign = Float.parseFloat(itemCampaignPriceFontSize.split("px")[0]);
+    Assert.assertTrue(pagePriceCampaign > pagePriceRegular,
+        "Item Page: campaign price size is not bigger than regular. Campaign is "
+            + itemPageCampaignPriceSize
+            + " and Regular is " + itemPageRegularPriceSize);
   }
 
 

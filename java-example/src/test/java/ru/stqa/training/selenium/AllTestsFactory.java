@@ -7,7 +7,7 @@ import org.testng.annotations.Factory;
 
 public class AllTestsFactory {
 
-  //  @Factory
+  @Factory
   public Object[] itemTestsKit() {
     return new Object[]{
         new ItemTests(new FirefoxDriver()),
