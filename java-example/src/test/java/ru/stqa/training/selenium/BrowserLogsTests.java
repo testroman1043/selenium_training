@@ -47,7 +47,7 @@ public class BrowserLogsTests {
   @Test
   public void testBrowserLogs() {
     driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1");
-    int logs1 = driver.manage().logs().get(LogType.BROWSER).getAll().size();
+//    int logs1 = driver.manage().logs().get(LogType.BROWSER).getAll().size();
     int itemsListSize = driver.findElements(
         By.xpath("//td/a[contains(@href,'edit_product') and not(contains(@title,'Edit'))]")).size();
     for (int i = 0; i < itemsListSize; i++) {
@@ -55,11 +55,11 @@ public class BrowserLogsTests {
       List<WebElement> itemsList = driver.findElements(
           By.xpath("//td/a[contains(@href,'edit_product') and not(contains(@title,'Edit'))]"));
       itemsList.get(i).click();
-      List<LogEntry> logEntries = driver.manage().logs().get(LogType.BROWSER).getAll();
+      List<LogEntry> logEntries = driver.manage().logs().get("browser").getAll();
       for (LogEntry log : logEntries) {
         System.out.println(log);
       }
-      Assert.assertEquals(logs1, logEntries.size());
+      Assert.assertEquals(logEntries.size(), 0);
     }
   }
 }
