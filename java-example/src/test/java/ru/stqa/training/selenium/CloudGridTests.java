@@ -50,7 +50,6 @@ public class CloudGridTests {
     driver.get("https://sferum.ru");
     WebDriverWait wait = new WebDriverWait(driver, 5);
     System.out.println(driver.getTitle());
-    driver.quit();
   }
 
 
